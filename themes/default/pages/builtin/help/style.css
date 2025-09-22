@@ -56,13 +56,13 @@ body {
 .section-content {
   font-size: 15px;
   color: var(--color-text-dark);
-  line-height: 1.8;
+  line-height: 1.6;
   z-index: 2;
   position: relative;
 }
 .section-content .markdown-content p {
     margin-top: 0;
-    margin-bottom: 1.0em;
+    margin-bottom: 0.7em;
 }
 .section-content .markdown-content p:last-child {
     margin-bottom: 0;
@@ -135,3 +135,13 @@ body {
   display: table;
   clear: both;
 }
+
+.section-content .markdown-content {
+  word-break: break-all;
+}
+
+.section-content .markdown-content .codehilite pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
