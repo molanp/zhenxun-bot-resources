@@ -70,6 +70,8 @@
                                     </div>
                                 </div>
                             </div>
+                        {% elif cell and cell.type == 'component' %}
+                            {{ render(cell.component) }}
                         {% elif cell is mapping and 'available' in cell %}
                             <span class="status-badge {{ 'ok' if cell.available else 'error' }}">
                                 <span>{{ cell.text }}</span>
