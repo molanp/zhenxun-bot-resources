@@ -1,9 +1,3 @@
-<style>
-    @layer components {
-        {# 引入此皮肤的专属样式 #}
-        {% include './style.css' %}
-    }
-</style>
 <div class="card-wrapper-glass {{ data.extra_classes | join(' ') if data.extra_classes }}" style="{{ data.inline_style_str }}">
     <div class="card-glow"></div>
     <div class="card-noise"></div>

@@ -1,4 +1,5 @@
 {% extends 'partials/_base.html' %}
+{% import "macros/ui.jinja" as ui %}
 
 {% block page_styles %}
     <style>
@@ -17,12 +18,9 @@
             <div class="info-section">
                 <div class="info-header">
                     <div class="bot-name">{{ data.bot_name }}</div>
-                    <div class="tags-container">
+                    <div class="tags-container flex flex-wrap gap-sm justify-center">
                         {% for tag in data.tags %}
-                        <span class="el-tag"
-                            style="background-color: {{ tag.color | default('#fdf1f5') }}; border-color: {{ tag.color | default('#e5aabe') }}; color: {% if tag.color and tag.color != '#fdf1f5' %}#FFFFFF{% else %}#f384a7{% endif %};">
-                            {{ tag.text }}
-                        </span>
+                            {{ ui.badge(tag.text, color='primary', rounded=True) }}
                         {% endfor %}
                     </div>
                 </div>
@@ -41,22 +39,26 @@
         <div class="plugins-container">
             <div class="plugins-section">
                 <div class="plugins-title">插件有话说</div>
-                <div class="plugins-grid">
+                <div class="plugins-grid grid grid-cols-2 gap-md">
                     {% for plugin in data.plugin_list %}
-                    <div class="plugin-item">
-                        {% if plugin.name %}
-                        <div class="plugin-name">{{ plugin.name }}</div>
-                        {% endif %}
-                        <div class="plugin-description">{{ plugin.introduction }}</div>
-                        {% if plugin.precautions and plugin.precautions | length > 0 %}
-                        <div class="plugin-notes-title">注意事项：</div>
-                        <div class="plugin-notes">
-                            {% for note in plugin.precautions %}
-                            <div class="plugin-note">{{ note }}</div>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
+                        {% call ui.card(class="h-full") %}
+                            {% if plugin.name %}
+                            <div class="font-bold text-lg text-primary mb-sm">
+                                {{ plugin.name }}
+                            </div>
+                            {% endif %}
+                            <div class="text-sm text-dark mb-md">
+                                {{ plugin.introduction }}
+                            </div>
+                            {% if plugin.precautions and plugin.precautions | length > 0 %}
+                                {{ ui.divider(margin='sm') }}
+                                <div class="text-xs text-muted">
+                                    {% for note in plugin.precautions %}
+                                    <div>⚠️ {{ note }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endcall %}
                     {% endfor %}
                 </div>
             </div>

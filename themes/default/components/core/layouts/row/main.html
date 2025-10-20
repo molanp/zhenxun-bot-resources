@@ -3,31 +3,21 @@
 {% endif %}
 
 {% block head_extra %}
-<style>
-    body { margin: 0; background-color: transparent; }
-    .layout-wrapper {
-        padding: {{ data.options.padding | default('0px') }};
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        gap: {{ data.options.gap }};
-        align-items: {{ data.options.align_items }};
-    }
-    .layout-item {
-        max-width: 100%;
-    }
-</style>
 {% endblock %}
 
 {% block body_content %}
-    {% from 'partials/_component_macros.jinja' import wrapper %}
-    {% call wrapper(data, 'layout-wrapper') %}
-        {% for item in data.children %}
-        <div class="layout-item">
-            {{ render(item.component) }}
-        </div>
-        {% endfor %}
-    {% endcall %}
+{% set dynamic_style = "padding: " ~ (data.options.padding | default('0px')) ~ "; gap: " ~ data.options.gap ~ "; align-items: " ~ data.options.align_items ~ ";" %}
+<div class="layout-row {{ data.extra_classes | join(' ') if data.extra_classes }}" style="{{ dynamic_style }} {{ data.inline_style_str }}">
+{% for item in data.children %}
+{% set item_style = "" %}
+{% if item.metadata and item.metadata.get('flex') %}
+{% set item_style = "flex: 1; min-width: 0;" %}
+{% endif %}
+<div class="layout-item" style="{{ item_style }}">
+    {{ render(item.component) }}
+</div>
+{% endfor %}
+</div>
 {% endblock %}
 
 {% block footer %}{% endblock %}

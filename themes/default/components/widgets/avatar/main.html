@@ -1,8 +1,3 @@
-<style>
-    @layer components {
-        {% include './style.css' %}
-    }
-</style>
 {% from 'partials/_component_macros.jinja' import wrapper %}
 {% macro render_avatar(avatar_data) %}
 <img class="avatar-wrapper {{ avatar_data.shape }}"

@@ -110,5 +110,38 @@
       "data_status_text": { "value": "#EC839D", "maps_to": "primary" },
       "tip_text": { "value": "#ecbac7", "maps_to": "text_muted" }
     }
+  },
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "48px"
+  },
+  "radius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "round": "9999px"
+  },
+  "typography": {
+    "font_family_main": "AlibabaHealthFont2, sans-serif",
+    "font_family_header": "fzrzFont, sans-serif",
+    "sizes": {
+      "xs": "12px",
+      "sm": "14px",
+      "base": "16px",
+      "lg": "18px",
+      "xl": "24px",
+      "2xl": "32px",
+      "3xl": "48px"
+    }
+  },
+  "shadows": {
+    "sm": "0 2px 4px rgba(0,0,0,0.05)",
+    "md": "0 4px 8px rgba(0,0,0,0.1)",
+    "lg": "0 10px 30px rgba(0,0,0,0.15)"
   }
 }

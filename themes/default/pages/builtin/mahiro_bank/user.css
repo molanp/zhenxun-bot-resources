@@ -94,21 +94,3 @@
 .rate {
   color: var(--color-text-muted);
 }
-
-.deposit-records::-webkit-scrollbar {
-  width: 4px;
-}
-
-.deposit-records::-webkit-scrollbar-track {
-  background: var(--color-mahiro-bank-scrollbar-track);
-  border-radius: 2px;
-}
-
-.deposit-records::-webkit-scrollbar-thumb {
-  background: var(--color-mahiro-bank-accent);
-  border-radius: 2px;
-}
-
-.deposit-records::-webkit-scrollbar-thumb:hover {
-  background: var(--color-mahiro-bank-scrollbar-thumb-hover);
-}
