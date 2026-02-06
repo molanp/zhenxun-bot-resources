@@ -79,11 +79,6 @@ thead th {
 }
 
 tbody tr {
-    transition: background-color 0.2s ease;
-}
-
-tbody tr:hover {
-    background-color: rgba(246, 113, 134, 0.1);
 }
 
 tbody tr:last-child td {
@@ -113,7 +108,7 @@ tbody tr:nth-child(even) {
     white-space: nowrap;
 }
 
-.status-badge.ok { background-color: var(--color-accent-green); }
+.status-badge.ok, .status-badge.success { background-color: var(--color-accent-green); }
 .status-badge.error { background-color: var(--color-accent-red); }
 .status-badge.warning { background-color: #E6A23C; }
 .status-badge.info { background-color: #909399; }

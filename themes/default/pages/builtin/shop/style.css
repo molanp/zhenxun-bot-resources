@@ -1,12 +1,4 @@
 /* [新增]: 此文件包含从 main.html 移动过来的所有样式 */
-@font-face {
-  font-family: fzrzFont;
-  src: url("{{ asset('fonts/fzrzExtraBold.ttf') }}");
-}
-@font-face {
-  font-family: syhtFont;
-  src: url("{{ asset('fonts/syht.otf') }}");
-}
 body {
     position: absolute;
     left: -8px; top: -8px;

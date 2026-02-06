@@ -10,6 +10,9 @@
         {% include 'theme.css.jinja' %}
     </style>
 
+    {# 引入原子化工具类 #}
+    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+
     {# 2. 为继承此模板的页面提供一个插入额外<style>块的位置 #}
     {% block page_styles %}{% endblock %}
 
